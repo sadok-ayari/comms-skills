@@ -50,6 +50,11 @@ python3 check_skills.py
 
 Validates frontmatter in every `SKILL.md`, checks description length, and asserts the repository carries no client-identifying strings.
 
+## Companion tools
+
+- [`media-roundup`](https://github.com/sadok-ayari/media-roundup) — the collection engine for a daily media brief.
+- [`source-gate`](https://github.com/sadok-ayari/source-gate) — fails a brief that makes a claim without a source.
+
 ## Licence
 
 MIT. Written by Sadok Ayari.
