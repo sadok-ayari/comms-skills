@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-FORBIDDEN = ["qatar", "mecc", "gggi", "oman", "arise", "nccac", "morocco", "jordan", "awal"]
+FORBIDDEN = ["qatar", "mecc", "gggi", "oman", "arise", "nccac", "morocco", "jordan", "awal", "doha"]
 SKILLS = sorted(p for p in ROOT.iterdir() if (p / "SKILL.md").exists())
 
 
@@ -44,7 +44,7 @@ def main():
         if path.is_file() and path.suffix in {".md", ".py", ".yml", ".yaml"}:
             low = path.read_text(encoding="utf-8", errors="ignore").lower()
             for token in FORBIDDEN:
-                if token in low and path.name != Path(__file__).name:
+                if re.search(rf"\b{token}\b", low) and path.name != Path(__file__).name:
                     errors.append(f"{path.relative_to(ROOT)}: contains {token!r}")
 
     if errors:
